@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameXplore</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="loader"></div>
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <ul>
+        <li>
+          <span class="logo">GameXplore</span>
+          <button onclick="toggleSidebar()" id="toggle-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"
+              />
+            </svg>
+          </button>
+        </li>
+        <li class="active">
+          <a href="index.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"
+              />
+            </svg>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="dashboard.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"
+              />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <button onclick="toggleSubMenu(this)" class="dropdown-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z"
+              />
+            </svg>
+            <span>Accessories</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"
+              />
+            </svg>
+          </button>
+          <ul class="sub-menu">
+            <div>
+              <li><a href="#">VR Accessory</a></li>
+              <li><a href="#">Stream Equipments</a></li>
+              <li><a href="#">Console Accessory</a></li>
+            </div>
+          </ul>
+        </li>
+
+        <li>
+          <a href="about.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"
+              />
+            </svg>
+            <span>About Us</span>
+          </a>
+        </li>
+        <li>
+          <a href="faqs.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M80-40v-80h800v80H80Zm80-120v-240q-33-54-51-114.5T91-638q0-61 15.5-120T143-874q8-21 26-33.5t40-12.5q31 0 53 21t18 50l-11 91q-6 48 8.5 91t43.5 75.5q29 32.5 70 52t89 19.5q60 0 120.5 12.5T706-472q45 23 69.5 58.5T800-326v166H160Zm80-80h480v-86q0-24-12-42.5T674-398q-41-20-95-31t-99-11q-66 0-122.5-27t-96-72.5Q222-585 202-644.5T190-768q-10 30-14.5 64t-4.5 66q0 58 20.5 111.5T240-422v182Zm240-320q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-720q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720q0 33 23.5 56.5T480-640ZM320-160v-37q0-67 46.5-115T480-360h160v80H480q-34 0-57 24.5T400-197v37h-80Zm160-80Zm0-480Z"
+              />
+            </svg>
+            <span>FAQ's</span>
+          </a>
+        </li>
+        <li>
+          <a href="contact.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"
+              />
+            </svg>
+            <span>Contact</span>
+          </a>
+        </li>
+        <li>
+          <a href="register.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"
+              />
+            </svg>
+            <span>Register</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Game<span>X</span>plore</h1>
+          <p>
+            GameXplore is a virtual gaming destination where you can explore,
+            play, and discover new games, platforms, and experiences. Our
+            mission is to create a unique and engaging gaming experience that
+            caters to the growing demand for high-quality entertainment. We
+            strive to provide you with the best gaming options, experiences, and
+            support to help you enjoy your favorite games. We are constantly
+            updating our offerings and adding new content to keep you informed
+            and excited about the latest gaming trends and developments.
+          </p>
+          <button><a href="accessory.html">Discover Accessory</a></button>
+        </div>
+      </div>
+      <!-- Discount -->
+      <section class="discount" id="#discount">
+        <div class="img-container">
+          <img src="Images/Landing1.png" alt="" />
+        </div>
+        <div class="content">
+          <h2>Get 50% Discount On New Accessories</h2>
+          <p>
+            Limited time offer! Enjoy a 50% discount on new accessories at
+            GameXplore. Apply now and save up to $100 on your next purchase.
+          </p>
+          <button><a href="accessory.html">View New Arrivals</a></button>
+        </div>
+      </section>
+      <!-- New Arrivals -->
+      <div class="new-arrivals">
+        <h1>New Arrivals</h1>
+        <div class="new-arrival-container">
+          <div class="new-arrival">
+            <!-- New Content 1 -->
+            <div class="new-content" id="new_item1">
+              <div class="new-tag">New</div>
+              <img src="Images/new_arrival1.png" alt="" class="new-image" />
+              <h3 class="new-title">Gaming Console</h3>
+              <span class="new-subtitle">Accessory</span>
+              <div class="new-prices">
+                <span class="new-price">$84.99</span>
+                <span class="new-discount">$99.99</span>
+              </div>
+              <button
+                class="new-button"
+                onclick="addToCart({ id: 1, name: 'Gaming Console', price: 84.99, img: 'Images/new_arrival1.png' })"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- New Content 2 -->
+            <div class="new-content" id="new_item2">
+              <div class="new-tag">New</div>
+              <img src="Images/new_arrival2.png" alt="" class="new-image" />
+              <h3 class="new-title">VR Set</h3>
+              <span class="new-subtitle">Accessory</span>
+              <div class="new-prices">
+                <span class="new-price">$74.99</span>
+                <span class="new-discount">$79.99</span>
+              </div>
+              <button
+                class="new-button"
+                onclick="addToCart({ id: 2, name: 'VR Set', price: 74.99, img: 'Images/new_arrival2.png' })"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- New Content 3 -->
+            <div class="new-content" id="new_item3">
+              <div class="new-tag">New</div>
+              <img src="Images/new_arrival3.png" alt="" class="new-image" />
+              <h3 class="new-title">Gaming Headset</h3>
+              <span class="new-subtitle">Accessory</span>
+              <div class="new-prices">
+                <span class="new-price">$34.99</span>
+                <span class="new-discount">$49.99</span>
+              </div>
+              <button
+                class="new-button"
+                onclick="addToCart({ id: 3, name: 'Gaming Headset', price: 34.99, img: 'Images/new_arrival3.png' })"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- New Content 4 -->
+            <div class="new-content" id="new_item4">
+              <div class="new-tag">New</div>
+              <img src="Images/new_arrival4.png" alt="" class="new-image" />
+              <h3 class="new-title">Stream Camera</h3>
+              <span class="new-subtitle">Accessory</span>
+              <div class="new-prices">
+                <span class="new-price">$64.99</span>
+                <span class="new-discount">$79.99</span>
+              </div>
+              <button
+                class="new-button"
+                onclick="addToCart({ id: 4, name: 'Stream Camera', price: 64.99, img: 'Images/new_arrival4.png' })"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- New Content 5 -->
+            <div class="new-content" id="new_item5">
+              <div class="new-tag">New</div>
+              <img src="Images/new_arrival5.png" alt="" class="new-image" />
+              <h3 class="new-title">Gaming Mouse</h3>
+              <span class="new-subtitle">Accessory</span>
+              <div class="new-prices">
+                <span class="new-price">$24.99</span>
+                <span class="new-discount">$29.99</span>
+              </div>
+              <button
+                class="new-button"
+                onclick="addToCart({ id: 5, name: 'Gaming Mouse', price: 24.99, img: 'Images/new_arrival5.png' })"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- New Content 6 -->
+            <div class="new-content" id="new_item6">
+              <div class="new-tag">New</div>
+              <img src="Images/new_arrival6.png" alt="" class="new-image" />
+              <h3 class="new-title">Gaming Mic</h3>
+              <span class="new-subtitle">Accessory</span>
+              <div class="new-prices">
+                <span class="new-price">$26.99</span>
+                <span class="new-discount">$30.99</span>
+              </div>
+              <button
+                class="new-button"
+                onclick="addToCart({ id: 6, name: 'Gaming Mic', price: 26.99, img: 'Images/new_arrival6.png' })"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- How To Order -->
+      <div class="how-to-order">
+        <h1>How to order products from Game<span>X</span>plore</h1>
+        <div class="how-content">
+          <div class="how-to-order-container">
+            <div class="how-to-order-tag">01</div>
+            <h5 class="how-to-order-title">Choose Product</h5>
+            <p class="how-to-order-para">
+              We have several variety products your can choose from.
+            </p>
+          </div>
+          <div class="how-to-order-container">
+            <div class="how-to-order-tag">02</div>
+            <h5 class="how-to-order-title">Place an order</h5>
+            <p class="how-to-order-para">
+              Once your order is set, we move to the next step which is
+              shipping.
+            </p>
+          </div>
+          <div class="how-to-order-container">
+            <div class="how-to-order-tag">03</div>
+            <h5 class="how-to-order-title">Get ordered delivered</h5>
+            <p class="how-to-order-para">
+              Our delivery process is easy. you receive the order direct to your
+              door.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- NewsLetter -->
+      <div class="newsletter">
+        <h1>Our Newsletter</h1>
+        <p>Promotion new products and sales. Directly to your inbox</p>
+        <form action="">
+          <input
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="Enter your email"
+          />
+          <button class="newspaper-button">Subscribe</button>
+        </form>
+      </div>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <!-- Column 1 -->
+          <div class="footer1">
+            <h3>Game<span>X</span>plore</h3>
+            <p>Enjoy the biggest sale of your life.</p>
+            <div class="social-icons">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-linkedin"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="footer1">
+            <h3>About</h3>
+            <ul class="footer-list">
+              <li><a href="about.html">About Us</a></li>
+              <li>Customer Support</li>
+              <li>Support Center</li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="footer1">
+            <h3>Our Services</h3>
+            <ul class="footer-list">
+              <li><a href="accessory.html">Shop</a></li>
+              <li>Discounts</li>
+              <li>Support Center</li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="footer1">
+            <h3>Our Company</h3>
+            <ul class="footer-list">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="register.html">Register</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>&copy; 2021 Game<span>X</span>plore. All rights reserved.</p>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
